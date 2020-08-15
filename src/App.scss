@@ -1,0 +1,103 @@
+*{
+    box-sizing: border-box;
+  }
+  html, body,#root ,.wrapper{
+    width: 100%;
+    height:100%;
+    margin: 0;
+    padding: 0;
+    
+    
+  }
+  #root {
+    background-color: #EEEEEE;
+  }
+.wrapper{
+    position: fixed;
+}
+.object{
+    position: absolute;
+}
+
+.headline{
+    top: 42%;
+    left: 6%;
+    position: absolute;
+    font-weight: revert;
+    line-height: inherit;
+    letter-spacing: 8px;
+}
+.subheadline{
+    top: 70%;
+    left: 6%;
+    position: absolute;
+    color: #D72323;
+}
+.subheadline span::before{
+content: '';
+animation: animate infinite 3s;
+}
+@keyframes animate{
+    0%{
+        content: 'Freelancer';
+    }
+    20%{
+        content: 'MERN Stack';
+    }
+    40%{
+        content: 'Node.js DEV';
+    }
+    60%{
+        content: 'React DEV';
+    }
+    80%{
+        content: 'Tour operator';
+    }
+    100%{
+        content: 'Designer';
+    }
+}
+
+#a{
+    width: 300px;
+    height: 100px;
+    top:0;
+    left:0;
+    border-radius: 31px;
+    background: #D72323;
+    transform: translate(0px, 27px)rotateZ(45deg);
+}
+#b{width: 300px;
+    height: 300px;
+    top: 43%;
+    margin-left: 64%;
+    border-radius: 31px;
+    background: #3b2eb1;
+    transform: translate(0px, 27px)rotatey(45deg);}
+
+#c{
+    top: 10%;
+    width: 400px;
+    height: 400px;
+   }
+#d{width: 300px;
+    height: 100px;
+    top:0;
+    left:0;
+    border-radius: 31px;
+    background: #D72323;
+    transform: translate(0px, 27px)rotateZ(45deg);}
+#e{width: 300px;
+    height: 100px;
+    top:0;
+    left:0;
+    border-radius: 31px;
+    background: #D72323;
+    transform: translate(0px, 27px)rotateZ(45deg);}
+#f{width: 300px;
+    height: 100px;
+    top:0;
+    left:0;
+    border-radius: 31px;
+    background: #D72323;
+    transform: translate(0px, 27px)rotateZ(45deg);}
