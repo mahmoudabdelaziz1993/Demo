@@ -1,13 +1,11 @@
 *{
     box-sizing: border-box;
   }
-  html, body,#root ,.wrapper{
+  html, body,#root {
     width: 100%;
-    height:100%;
     margin: 0;
     padding: 0;
-    
-    
+
   }
   #root {
     background-color: #EEEEEE;
@@ -21,16 +19,17 @@
 
 .headline{
     top: 42%;
-    left: 6%;
+    left: 7%;
     position: absolute;
     font-weight: revert;
     line-height: inherit;
     letter-spacing: 8px;
 }
 .subheadline{
-    top: 70%;
-    left: 6%;
-    position: absolute;
+    // top: 70%;
+    // left: 6%;
+   width: 100%;
+   
     color: #D72323;
 }
 .subheadline span::before{
@@ -57,6 +56,23 @@ animation: animate infinite 3s;
         content: 'Designer';
     }
 }
+
+// logos
+#logos{
+    fill: #D72323;
+}
+
+#logos path:nth-child(3){
+    fill: #3b2eb1;
+    animation:hum infinite 4s ;
+
+}
+@keyframes hum{
+    100%{
+        transform: skewX(10deg);
+    }
+}
+
 
 #a{
     width: 300px;

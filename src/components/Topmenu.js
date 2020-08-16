@@ -9,7 +9,8 @@ const useStyles = makeStyles({
     },
     logo:{
         width:'60px',
-        height:"60px"
+        height:"60px",
+        marginLeft:'-15px'
     },
     space : {
         flexGrow:1
