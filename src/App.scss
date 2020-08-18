@@ -17,14 +17,7 @@
     position: absolute;
 }
 
-.headline{
-    top: 42%;
-    left: 7%;
-    position: absolute;
-    font-weight: revert;
-    line-height: inherit;
-    letter-spacing: 8px;
-}
+
 .subheadline{
     // top: 70%;
     // left: 6%;
@@ -44,20 +37,24 @@ animation-timing-function: linear;
         content: 'Freelancer';
     }
     20%{
-        content: 'MERN Stack';
+        content: 'Fullstack';
     }
     40%{
-        content: 'Node.js DEV';
-    }
-    60%{
-        content: 'React DEV';
-    }
-    80%{
-        content: 'Tour operator';
-    }
-    100%{
         content: 'Designer';
     }
+    60%{
+        content: 'Back end';
+    }
+    80%{
+        content: 'Front end';
+    }
+    100%{
+        content: 'Tour operator';
+    }
+}
+
+.myname {
+    font-weight: bold;
 }
 
 // logos
