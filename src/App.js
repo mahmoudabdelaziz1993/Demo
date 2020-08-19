@@ -14,7 +14,7 @@ let theme = createMuiTheme({
       main: '#D72323'
     },
     secondary: {
-      main: '#000000'
+      main: '#303841'
     }
   },
   typography: {
@@ -54,16 +54,16 @@ function App() {
         {/* hero section */}
         <Grid item container alignContent='center' style={{ minHeight: "80vh" }} >
           <Grid item xs={2} md={2} />
-          <Grid item container direction='column' xs={6} md={4}  >
-            <Grid item><Typography variant='h2' component='h1' display='block' gutterBottom={true}> Hello <br /> I'm <br /> Mahmoud abdelaziz </Typography></Grid>
+          <Grid item container direction='column' xs={6} md={6}  >
+            <Grid item><Typography variant='h3' component='h3' display='block' gutterBottom={true}> Hello <br /> I'm  Mahmoud abdelaziz </Typography></Grid>
             <Grid item> <Typography variant='subtitle1' component='h3' className="subheadline" nowrap display='block' gutterBottom={true} ><span></span></Typography></Grid>
             <Grid item> <Button size='small'  color='primary' variant='contained' startIcon={<CloudDownload />} onClick={downlaod}>download Resume</Button></Grid>
           </Grid>
-          <Grid item xs={4} md={4} >
-            <Me style={{ width: "100%" }} />
+          <Grid item xs={3} md={2}  >
+            <Me style={{width:"100%" ,height:'auto' }} />
           </Grid>
 
-          <Grid item xs={false} md={2} />
+          <Grid item xs={1} md={2} />
         </Grid>
 
         {/* about Me section */}
@@ -85,19 +85,14 @@ function App() {
         </Grid>
 
         {/* Work section */}
-        <Grid Grid item container style={{ minHeight: "80vh" }}>
+        <Grid Grid item container style={{ minHeight: "100vh" }}>
           <Grid item xs={2} md={2} />
 
           <Grid item container direction='column' xs={8} md={8}>
             <Grid item> <Typography variant='h3' >Work</Typography></Grid>
-
-
-
-
+            <Grid item><Project/></Grid>
 
           </Grid>
-
-
           <Grid item xs={2} md={2} />
         </Grid>
 

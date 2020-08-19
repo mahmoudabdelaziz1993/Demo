@@ -62,8 +62,26 @@ animation-timing-function: linear;
     fill: #D72323;
 }
 
+#bleft{
+    animation:hum infinite 3s ;
+    animation-direction: alternate;
+    animation-timing-function: ease-in;
+    transform-origin: top;
+    transform-box:fill-box;
+}
+
+#bright{
+    animation-delay: 1s;
+    animation:hum2 infinite 3s ;
+    animation-direction: alternate;
+    animation-timing-function: ease-in;
+    transform-origin: bottom;
+}
+
+
+
 #logos path:nth-child(3){
-    fill: #3b2eb1;
+    fill: #303841;
     animation:hum infinite .3s ;
     animation-direction: alternate;
     animation-timing-function: linear;
@@ -72,7 +90,12 @@ animation-timing-function: linear;
 }
 @keyframes hum{
     100%{
-        transform: skewX(10deg);
+        transform: skewX(5deg);
+    }
+}
+@keyframes hum2{
+    100%{
+        transform: skewY(5deg);
     }
 }
 
