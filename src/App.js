@@ -7,6 +7,7 @@ import { CloudDownload } from '@material-ui/icons'
 import { ReactComponent as Me } from './me.svg'
 import { ReactComponent as Mogo } from './logos.svg'
 import Project from './components/Project';
+import { projects } from './data'
 
 let theme = createMuiTheme({
   palette: {
@@ -85,12 +86,13 @@ function App() {
         </Grid>
 
         {/* Work section */}
-        <Grid Grid item container style={{ minHeight: "100vh" }}>
+        <Grid Grid item container >
           <Grid item xs={2} md={2} />
 
-          <Grid item container direction='column' xs={8} md={8}>
+          <Grid item container direction='column' spacing={3} xs={8} md={8}>
             <Grid item> <Typography variant='h3' >Work</Typography></Grid>
-            <Grid item><Project/></Grid>
+            {projects.map((project)=>  <Grid item ><Project project={project}/></Grid>)}
+           
 
           </Grid>
           <Grid item xs={2} md={2} />

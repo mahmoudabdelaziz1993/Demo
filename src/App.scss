@@ -63,39 +63,47 @@ animation-timing-function: linear;
 }
 
 #bleft{
-    animation:hum infinite 3s ;
+    animation:flyL infinite 3s ;
     animation-direction: alternate;
     animation-timing-function: ease-in;
-    transform-origin: top;
+    transform-origin: right;
     transform-box:fill-box;
 }
 
 #bright{
     animation-delay: 1s;
-    animation:hum2 infinite 3s ;
+    animation:fly infinite 2s ;
     animation-direction: alternate;
-    animation-timing-function: ease-in;
-    transform-origin: bottom;
+    animation-timing-function: ease-in-out;
+    transform-origin: left;
+    transform-box: fill-box ;
 }
 
 
 
 #logos path:nth-child(3){
     fill: #303841;
-    animation:hum infinite .3s ;
+    animation:hum infinite 1s ;
     animation-direction: alternate;
-    animation-timing-function: linear;
+    transform-origin: top;
+
+    transform-box: fill-box ;
 
 
 }
 @keyframes hum{
     100%{
-        transform: skewX(5deg);
+        transform: rotatez(-5deg);
     }
 }
-@keyframes hum2{
+@keyframes fly{
     100%{
-        transform: skewY(5deg);
+        transform: rotatez(15deg);
+    }
+}
+@keyframes flyL{
+    100%{
+        transform: rotatez(-15deg);
     }
 }
 
