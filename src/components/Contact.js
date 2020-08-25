@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 
 function Contact() {
     const classes = useStyles()
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit, errors } = useForm();
     const onSubmit = data => console.log(data);
 
     return (
@@ -34,7 +34,7 @@ function Contact() {
                         inputRef={register({
                             required: 'Required !',
                             minLength: {
-                                value: 5,
+                                value: 3,
                                 message: 'too short for a name dude !'
                             },
                             pattern: {
@@ -43,21 +43,21 @@ function Contact() {
                             }
                         })}
                         name='name' type='name' aria-describedby='name-helper' />
-                    <FormHelperText id='name-helper'>{errors.name ? errors.name.message : " Put the email you want me to text you on"} </FormHelperText>
+                    <FormHelperText error={errors.name && true} id='name-helper'>{errors.name ? errors.name.message : "What should i call you "} </FormHelperText>
                 </FormControl>
 
                 <FormControl>
                     <InputLabel htmlFor='email'>email</InputLabel>
-                    <Input inputRef={register({required: 'Required !' })} name='email' type='email' aria-describedby='email-helper' />
-                    <FormHelperText id='email-helper'> {errors.email ? errors.email.message :"Put the email you want me to text you on" }  </FormHelperText>
+                    <Input  inputRef={register({required: 'Required !' })} name='email' type='email' aria-describedby='email-helper' />
+                    <FormHelperText error={errors.email && true} id='email-helper'> {errors.email ? errors.email.message :"Put the email you want me to text you on" }  </FormHelperText>
                 </FormControl>
 
                 <FormControl>
                     <InputLabel htmlFor='message'>message</InputLabel>
-                    <Input inputRef={register({
+                    <Input multiline={true} inputRef={register({
                          required: 'Required !',
                           minLength: {value:50,message:'come on leave me meaningful message atleast 50'} })} name='message' type='message' aria-describedby='message-helper' />
-                    <FormHelperText id='message-helper'>{errors.message ? errors.message.message : "Be comfortable to ask about anything"}    </FormHelperText>
+                    <FormHelperText error={errors.message && true} id='message-helper'>{errors.message ? errors.message.message : "Be comfortable to ask about anything"}    </FormHelperText>
                 </FormControl>
 
                 <Button type="submit" variant='contained' color='secondary'>send</Button>
