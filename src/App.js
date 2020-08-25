@@ -8,6 +8,7 @@ import { ReactComponent as Me } from './me.svg'
 import { ReactComponent as Mogo } from './logos.svg'
 import Project from './components/Project';
 import { projects } from './data'
+import Contact from './components/Contact';
 
 let theme = createMuiTheme({
   palette: {
@@ -15,7 +16,7 @@ let theme = createMuiTheme({
       main: '#D72323'
     },
     secondary: {
-      main: '#303841'
+      main: '#000000'
     }
   },
   typography: {
@@ -57,7 +58,7 @@ function App() {
           <Grid item xs={2} md={2} />
           <Grid item container direction='column' xs={6} md={6}  >
             <Grid item><Typography variant='h3' component='h3' display='block' gutterBottom={true}> Hello <br /> I'm  Mahmoud abdelaziz </Typography></Grid>
-            <Grid item> <Typography variant='subtitle1' component='h3' className="subheadline" nowrap display='block' gutterBottom={true} ><span></span></Typography></Grid>
+            <Grid item> <Typography variant='subtitle1' component='h3' className="subheadline"  display='block' gutterBottom={true} ><span></span></Typography></Grid>
             <Grid item> <Button size='small'  color='primary' variant='contained' startIcon={<CloudDownload />} onClick={downlaod}>download Resume</Button></Grid>
           </Grid>
           <Grid item xs={3} md={2}  >
@@ -86,18 +87,26 @@ function App() {
         </Grid>
 
         {/* Work section */}
-        <Grid Grid item container >
+        <Grid  item container >
           <Grid item xs={2} md={2} />
-
           <Grid item container direction='column' spacing={3} xs={8} md={8}>
             <Grid item> <Typography variant='h3' >Work</Typography></Grid>
-            {projects.map((project)=>  <Grid item ><Project project={project}/></Grid>)}
-           
-
+            {projects.map((project)=>  <Grid item key={project.number} ><Project project={project}/></Grid>)}
           </Grid>
           <Grid item xs={2} md={2} />
         </Grid>
 
+
+        {/* Let's talk section  */}
+        <Grid  item container >
+          <Grid item xs={2} md={2} />
+          <Grid item container direction='column' spacing={3} xs={8} md={8} justify='center' alignContent='center'>
+            
+            <Grid item> <Typography variant='h3' color='primary' style={{marginTop:'50px'}} >Let's talk</Typography></Grid>
+             <Grid item ><Contact/></Grid>
+          </Grid>
+          <Grid item xs={2} md={2} />
+        </Grid>
 
         {/* <div className="object" id="a" />
         <div className="object" id="b" />
