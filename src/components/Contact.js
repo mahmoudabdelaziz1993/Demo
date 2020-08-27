@@ -1,6 +1,8 @@
 import React from 'react'
 import { Box, FormControl, InputLabel, Input, FormHelperText, makeStyles, Button } from '@material-ui/core'
 import { useForm } from "react-hook-form";
+import emailjs from 'emailjs-com';
+
 
 
 
@@ -21,7 +23,17 @@ const useStyles = makeStyles({
 function Contact() {
     const classes = useStyles()
     const { register, handleSubmit, errors } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = async(data , e) => {
+        e.preventDefault()
+        console.log(e.target)
+         emailjs.sendForm('outlook', 'portfolio',e.target, 'user_rZ4RAjXKuoyHqjkDC8SYv')
+         .then((result) => {
+             console.log(result.text);
+         }, (error) => {
+             console.log(error.text);
+         });
+
+    };
 
     return (
         // handleSubmit" will validate your inputs before invoking "onSubmit"  
