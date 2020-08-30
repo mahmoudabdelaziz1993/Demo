@@ -23,15 +23,15 @@ const useStyles = makeStyles({
 function Contact() {
     const classes = useStyles()
     const { register, handleSubmit, errors } = useForm();
-    const onSubmit = async(data , e) => {
+    const onSubmit = async (data, e) => {
         e.preventDefault()
         console.log(e.target)
-         emailjs.sendForm('outlook', 'portfolio',e.target, 'user_rZ4RAjXKuoyHqjkDC8SYv')
-         .then((result) => {
-             console.log(result.text);
-         }, (error) => {
-             console.log(error.text);
-         });
+        emailjs.sendForm('outlook', 'portfolio', e.target, 'user_rZ4RAjXKuoyHqjkDC8SYv')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
 
     };
 
@@ -60,15 +60,16 @@ function Contact() {
 
                 <FormControl>
                     <InputLabel htmlFor='email'>email</InputLabel>
-                    <Input  inputRef={register({required: 'Required !' })} name='email' type='email' aria-describedby='email-helper' />
-                    <FormHelperText error={errors.email && true} id='email-helper'> {errors.email ? errors.email.message :"Put the email you want me to text you on" }  </FormHelperText>
+                    <Input inputRef={register({ required: 'Required !' })} name='email' type='email' aria-describedby='email-helper' />
+                    <FormHelperText error={errors.email && true} id='email-helper'> {errors.email ? errors.email.message : "Put the email you want me to text you on"}  </FormHelperText>
                 </FormControl>
 
                 <FormControl>
                     <InputLabel htmlFor='message'>message</InputLabel>
                     <Input multiline={true} inputRef={register({
-                         required: 'Required !',
-                          minLength: {value:50,message:'come on leave me meaningful message atleast 50'} })} name='message' type='message' aria-describedby='message-helper' />
+                        required: 'Required !',
+                        minLength: { value: 50, message: 'come on leave me meaningful message atleast 50' }
+                    })} name='message' type='message' aria-describedby='message-helper' />
                     <FormHelperText error={errors.message && true} id='message-helper'>{errors.message ? errors.message.message : "Be comfortable to ask about anything"}    </FormHelperText>
                 </FormControl>
 

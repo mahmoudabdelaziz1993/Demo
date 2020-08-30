@@ -19,10 +19,13 @@ const useStyles = makeStyles({
 
 function Topmenu() {
     const classes = useStyles()
+    const home =()=>{
+        window['scrollTo']({top:0,behavior:'smooth'})
+    }
     return (
         <AppBar  position="sticky" color="transparent" className={classes.root}>
             <Toolbar >
-                <IconButton color='inherit'><Logo className={classes.logo} /></IconButton>
+                <IconButton color='inherit' onClick={home} ><Logo className={classes.logo} /></IconButton>
                 <div className={classes.space}/>
                 <IconButton color='inherit' href='https://www.linkedin.com/in/mahmoud-abdelaziz-salama/'> <LinkedIn/></IconButton>
                 <IconButton color='inherit' href='https://github.com/mahmoudabdelaziz1993/'><GitHub/></IconButton>

@@ -3,7 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import './App.scss';
 import Topmenu from './components/Topmenu';
 import { Box, createMuiTheme, Button, Grid, Typography, responsiveFontSizes, MuiThemeProvider } from '@material-ui/core';
-import { CloudDownload } from '@material-ui/icons'
+import { CloudDownload, Work } from '@material-ui/icons'
 import { ReactComponent as Me } from './me.svg'
 import { ReactComponent as Mogo } from './logos.svg'
 import { ReactComponent as Logo } from './logo.svg'
@@ -47,24 +47,26 @@ theme = responsiveFontSizes(theme)
 
 
 
-const downlaod = () => {
-  const link = document.createElement('a');
-  link.href = process.env.PUBLIC_URL + "/CV.pdf";
-  link.setAttribute('download', 'Mahmoud-abdelaziz.pdf');
-  document.body.appendChild(link);
-  link.click();
-}
 
 
 
 function App() {
+
+  const downlaod = () => {
+    const link = document.createElement('a');
+    link.href = process.env.PUBLIC_URL + "/CV.pdf";
+    link.setAttribute('download', 'Mahmoud-abdelaziz.pdf');
+    document.body.appendChild(link);
+    link.click();
+  }
+
 
 
   //protfolio is on !
   const [IsOn, setIsOn] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setIsOn(!IsOn), 3000)
+    setTimeout(() => setIsOn(!IsOn), 2000)
   }, [])
 
 
@@ -85,7 +87,7 @@ function App() {
 
             }}
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1}}
+              animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
               <motion.div animate={{ scale: 1.2 }} transition={{ yoyo: Infinity, duration: .5 }}
@@ -99,10 +101,10 @@ function App() {
           :
           <AnimatePresence>
             <motion.div
-            style={{display:'contents'}} 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}>
+              style={{ display: 'contents' }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}>
               <Topmenu />
 
               {/* hero section */}
@@ -111,7 +113,14 @@ function App() {
                 <Grid item container direction='column' xs={6} md={6}  >
                   <Grid item><Typography variant='h3' component='h3' display='block' gutterBottom={true}> Hello <br /> I'm  Mahmoud abdelaziz </Typography></Grid>
                   <Grid item> <Typography variant='subtitle1' component='h3' className="subheadline" display='block' gutterBottom={true} ><span></span></Typography></Grid>
-                  <Grid item> <Button size='small' color='primary' variant='contained' startIcon={<CloudDownload />} onClick={downlaod}>download Resume</Button></Grid>
+                  <Grid item >
+                    <Box style={{ display: 'flex', alignItems: 'stretch', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
+                      <Button size='small' color='primary' variant='contained' style={{ marginRight: '5px', marginBottom: "5px" }} startIcon={<CloudDownload />} onClick={downlaod}>download Resume</Button>
+                      <Button size='small' color='primary' variant='contained' style={{ marginBottom: "5px" }} startIcon={<Work />} href="#contact">Hire me </Button>
+                    </Box>
+
+
+                  </Grid>
                 </Grid>
                 <Grid item xs={3} md={2}  >
                   <Me style={{ width: "100%", height: 'auto' }} />
@@ -143,7 +152,17 @@ function App() {
                 <Grid item xs={2} md={2} />
                 <Grid item container direction='column' spacing={3} xs={8} md={8}>
                   <Grid item> <Typography variant='h3' >Work</Typography></Grid>
-                  {projects.map((project) => <Grid item key={project.number} ><Project project={project} /></Grid>)}
+
+
+
+                  {projects.map(
+                    (project) =>
+
+                      <Grid item key={project.number} >
+                        <Project project={project} />
+                      </Grid>
+
+                  )}
                 </Grid>
                 <Grid item xs={2} md={2} />
               </Grid>
@@ -152,15 +171,16 @@ function App() {
               {/* Let's talk section  */}
               <Grid item container >
                 <Grid item xs={2} md={2} />
-                <Grid item container direction='column' spacing={3} xs={8} md={8} justify='center' alignContent='center'>
+                <Grid item container direction='column' spacing={3} xs={8} md={8} justify='center' id='contact' alignContent='center'>
 
                   <Grid item> <Typography variant='h3' color='primary' style={{ marginTop: '50px' }} >Let's talk</Typography></Grid>
-                  <Grid item ><Contact /></Grid>
+                  <Grid item id='contact' ><Contact /></Grid>
                 </Grid>
                 <Grid item xs={2} md={2} />
               </Grid>
 
               <Footer />
+
 
             </motion.div>
           </AnimatePresence>

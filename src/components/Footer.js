@@ -3,11 +3,11 @@ import { Box, Typography, makeStyles} from '@material-ui/core'
 import { Phone , Email ,School ,Language , LocationCity} from '@material-ui/icons'
 const useStyles = makeStyles({
     root: {
-        height:'40vh',
+        
         display: 'flex',
         background:'black' ,
         flexWrap:'wrap',
-        alignItems:'flex-end'
+        
     },contacts:{
         display:'flex',
         flexDirection:'column',

@@ -3,8 +3,10 @@ import { Card, CardContent, CardActions, CardMedia, Typography, IconButton, make
 import { Code, Launch } from '@material-ui/icons'
 const useStyles = makeStyles({
     root: {
+        display:"flex",
+        flexDirection:'column',
         position:'relative',
-        minHeight: "400px",
+       
         borderRadius:"25px"
     },
     media: {
