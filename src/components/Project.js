@@ -38,8 +38,8 @@ function Project(props) {
                 <Typography variant='subtitle2'>{props.project.subtitle}</Typography>
             </CardContent>
             <CardActions>
-                <IconButton><Code /></IconButton>
-                <IconButton><Launch /></IconButton>
+                <IconButton href={props.project.source}><Code /></IconButton>
+                <IconButton  href={props.project.live}><Launch /></IconButton>
             </CardActions>
         </Card>
     )
