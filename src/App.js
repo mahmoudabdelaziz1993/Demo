@@ -12,6 +12,7 @@ import { projects } from './data'
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { motion, AnimatePresence } from 'framer-motion'
+import Thick from './components/Thick';
 
 
 
@@ -73,8 +74,10 @@ function App() {
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
-      <Grid  >
 
+      <Thick />
+      <Grid  >
+        
 
         {!IsOn ?
           <AnimatePresence>
@@ -99,104 +102,107 @@ function App() {
           </AnimatePresence>
 
           :
-          <AnimatePresence>
-            <motion.div
-              style={{ display: 'contents' }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}>
-              <Topmenu />
+          <>
 
-              {/* hero section */}
-              <Grid item container alignContent='center' style={{ minHeight: "80vh" }} >
-                <Grid item xs={2} md={2} />
-                <Grid item container direction='column' xs={6} md={6}  >
-                  <Grid item><Typography variant='h3' component='h3' display='block' gutterBottom={true}> Hello <br /> I'm  Mahmoud abdelaziz </Typography></Grid>
-                  <Grid item> <Typography variant='subtitle1' component='h3' className="subheadline" display='block' gutterBottom={true} ><span></span></Typography></Grid>
-                  <Grid item >
-                    <Box style={{ display: 'flex', alignItems: 'stretch', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
-                      <Button size='small' color='primary' variant='contained' style={{ marginRight: '5px', marginBottom: "5px" }} startIcon={<CloudDownload />} onClick={downlaod}>download Resume</Button>
-                      <Button size='small' color='primary' variant='contained' style={{ marginBottom: "5px" }} startIcon={<Work />} href="#contact">Hire me </Button>
-                    </Box>
+            <AnimatePresence>
+              <motion.div
+                style={{ display: 'contents'}}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}>
+
+                <Topmenu />
+
+                {/* hero section */}
+                <Grid item container alignContent='center' style={{ minHeight: "80vh" }} >
+                  <Grid item xs={2} md={2} />
+                  <Grid item container direction='column' xs={6} md={6}  >
+                    <Grid item><Typography variant='h3' component='h3' display='block' gutterBottom={true}> Hello <br /> I'm  Mahmoud abdelaziz </Typography></Grid>
+                    <Grid item> <Typography variant='subtitle1' component='h3' className="subheadline" display='block' gutterBottom={true} ><span></span></Typography></Grid>
+                    <Grid item >
+                      <Box style={{ display: 'flex', alignItems: 'stretch', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
+                        <Button size='small' color='primary' variant='contained' style={{ marginRight: '5px', marginBottom: "5px" }} startIcon={<CloudDownload />} onClick={downlaod}>download Resume</Button>
+                        <Button size='small' color='primary' variant='contained' style={{ marginBottom: "5px" }} startIcon={<Work />} href="#contact">Hire me </Button>
+                      </Box>
 
 
+                    </Grid>
+                  </Grid>
+                  <Grid item xs={3} md={2}  >
+                    <Me style={{ width: "100%", height: 'auto' }} />
+                  </Grid>
+
+                  <Grid item xs={1} md={2} >
+                    <motion.span
+                      initial={{ y: "-50px", opacity: 0 }}
+                      animate={{ y: "-40px", opacity: 1 }}
+                      transition={{ y: { yoyo: Infinity, duration: 1 }, opacity: { yoyo: Infinity, duration: 1 } }}
+                      style={{ position: "absolute", bottom: 10 }}>
+                      <IconButton
+                        href="#about"
+                        color="inherit" style={{ padding: 0 }}>
+                        <KeyboardArrowDown style={{ fontSize: "30px" }} />
+                      </IconButton>
+                    </motion.span >
                   </Grid>
                 </Grid>
-                <Grid item xs={3} md={2}  >
-                  <Me style={{ width: "100%", height: 'auto' }} />
-                </Grid>
 
-                <Grid item xs={1} md={2} >
-                  <motion.span
-                    initial={{ y: "-50px", opacity: 0 }}
-                    animate={{ y: "-40px", opacity: 1 }}
-                    transition={{ y: { yoyo: Infinity, duration: 1 }, opacity: { yoyo: Infinity, duration: 1 } }}
-                    style={{ position: "absolute", bottom: 10 }}>
-                    <IconButton
-                      href="#about"
-                      color="inherit" style={{ padding: 0 }}>
-                      <KeyboardArrowDown style={{ fontSize: "30px" }} />
-                    </IconButton>
-                  </motion.span >
-                </Grid>
-              </Grid>
-
-              {/* about Me section */}
-              <Grid item container alignContent='center' id="about" justify='center' style={{ minHeight: "80vh" }} >
-                <Grid item xs={2} md={2} />
-                <Grid item container direction='column' alignContent='center' xs={4} md={4} >
-                  <Grid item > <Typography variant='h3' gutterBottom={true}> About me</Typography></Grid>
-                  <Grid item>
-                    <Typography variant='subtitle2' component='p' display='block' >
-                      I’ve always sought out opportunities and challenges that are meaningful to me. Although my professional path has taken many twists and turns ,
-                      from Sales and tour oprating to a Fullstack dev
+                {/* about Me section */}
+                <Grid item container alignContent='center' id="about" justify='center' style={{ minHeight: "80vh" }} >
+                  <Grid item xs={2} md={2} />
+                  <Grid item container direction='column' alignContent='center' xs={4} md={4} >
+                    <Grid item > <Typography variant='h3' gutterBottom={true}> About me</Typography></Grid>
+                    <Grid item>
+                      <Typography variant='subtitle2' component='p' display='block' >
+                        I’ve always sought out opportunities and challenges that are meaningful to me. Although my professional path has taken many twists and turns ,
+                        from Sales and tour oprating to a Fullstack dev
         </Typography>
+                    </Grid>
                   </Grid>
+                  <Grid item xs={4} md={4} >
+                    <Mogo style={{ width: "100%" }} />
+                  </Grid>
+                  <Grid item xs={2} md={2} />
                 </Grid>
-                <Grid item xs={4} md={4} >
-                  <Mogo style={{ width: "100%" }} />
+
+                {/* Work section */}
+                <Grid item container >
+                  <Grid item xs={2} md={2} />
+                  <Grid item container direction='column' spacing={3} xs={8} md={8}>
+                    <Grid item> <Typography variant='h3' >Work</Typography></Grid>
+
+
+
+                    {projects.map(
+                      (project) =>
+
+                        <Grid item key={project.number} >
+                          <Project project={project} />
+                        </Grid>
+
+                    )}
+                  </Grid>
+                  <Grid item xs={2} md={2} />
                 </Grid>
-                <Grid item xs={2} md={2} />
-              </Grid>
-
-              {/* Work section */}
-              <Grid item container >
-                <Grid item xs={2} md={2} />
-                <Grid item container direction='column' spacing={3} xs={8} md={8}>
-                  <Grid item> <Typography variant='h3' >Work</Typography></Grid>
 
 
+                {/* Let's talk section  */}
+                <Grid item container >
+                  <Grid item xs={2} md={2} />
+                  <Grid item container direction='column' spacing={3} xs={8} md={8} justify='center' id='contact' alignContent='center'>
 
-                  {projects.map(
-                    (project) =>
-
-                      <Grid item key={project.number} >
-                        <Project project={project} />
-                      </Grid>
-
-                  )}
+                    <Grid item> <Typography variant='h3' color='primary' style={{ marginTop: '50px' }} >Let's talk</Typography></Grid>
+                    <Grid item id='contact' ><Contact /></Grid>
+                  </Grid>
+                  <Grid item xs={2} md={2} />
                 </Grid>
-                <Grid item xs={2} md={2} />
-              </Grid>
+
+                <Footer />
 
 
-              {/* Let's talk section  */}
-              <Grid item container >
-                <Grid item xs={2} md={2} />
-                <Grid item container direction='column' spacing={3} xs={8} md={8} justify='center' id='contact' alignContent='center'>
-
-                  <Grid item> <Typography variant='h3' color='primary' style={{ marginTop: '50px' }} >Let's talk</Typography></Grid>
-                  <Grid item id='contact' ><Contact /></Grid>
-                </Grid>
-                <Grid item xs={2} md={2} />
-              </Grid>
-
-              <Footer />
-
-
-            </motion.div>
-          </AnimatePresence>
-
+              </motion.div>
+            </AnimatePresence>
+          </>
         }
 
 
