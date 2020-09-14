@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import './App.scss';
 import Topmenu from './components/Topmenu';
-import { Box, createMuiTheme, Button, Grid, Typography, responsiveFontSizes, MuiThemeProvider } from '@material-ui/core';
-import { CloudDownload, Work } from '@material-ui/icons'
+import { Box, createMuiTheme, Button, Grid, Typography, responsiveFontSizes, MuiThemeProvider, IconButton } from '@material-ui/core';
+import { CloudDownload, Work, KeyboardArrowDown } from '@material-ui/icons'
 import { ReactComponent as Me } from './me.svg'
 import { ReactComponent as Mogo } from './logos.svg'
 import { ReactComponent as Logo } from './logo.svg'
@@ -126,11 +126,23 @@ function App() {
                   <Me style={{ width: "100%", height: 'auto' }} />
                 </Grid>
 
-                <Grid item xs={1} md={2} />
+                <Grid item xs={1} md={2} >
+                  <motion.span
+                    initial={{ y: "-50px", opacity: 0 }}
+                    animate={{ y: "-40px", opacity: 1 }}
+                    transition={{ y: { yoyo: Infinity, duration: 1 }, opacity: { yoyo: Infinity, duration: 1 } }}
+                    style={{ position: "absolute", bottom: 10 }}>
+                    <IconButton
+                      href="#about"
+                      color="inherit" style={{ padding: 0 }}>
+                      <KeyboardArrowDown style={{ fontSize: "30px" }} />
+                    </IconButton>
+                  </motion.span >
+                </Grid>
               </Grid>
 
               {/* about Me section */}
-              <Grid item container alignContent='center' justify='center' style={{ minHeight: "80vh" }} >
+              <Grid item container alignContent='center' id="about" justify='center' style={{ minHeight: "80vh" }} >
                 <Grid item xs={2} md={2} />
                 <Grid item container direction='column' alignContent='center' xs={4} md={4} >
                   <Grid item > <Typography variant='h3' gutterBottom={true}> About me</Typography></Grid>
