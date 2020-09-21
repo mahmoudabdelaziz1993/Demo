@@ -58,8 +58,8 @@ function Lights() {
 
 export default function Thick() {
   return (
-    <div style ={{position:'absolute' ,zIndex:"-1" ,width:'100%',height:'430%'}}>
-      <Canvas shadowMap camera={{ position: [0, 0, 30], fov: 250 }}>
+    <div style ={{position:'absolute' ,zIndex:"-1" ,width:'100%',height:'100%'}}>
+      <Canvas shadowMap camera={{ position: [0, 0, 100], fov: 250 }}>
         <Lights />
         <Content />
       </Canvas>

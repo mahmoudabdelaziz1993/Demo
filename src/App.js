@@ -75,9 +75,9 @@ function App() {
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
 
-      <Thick />
+
       <Grid  >
-        
+
 
         {!IsOn ?
           <AnimatePresence>
@@ -106,11 +106,11 @@ function App() {
 
             <AnimatePresence>
               <motion.div
-                style={{ display: 'contents'}}
+                style={{ display: 'contents' }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}>
-
+                <Thick />
                 <Topmenu />
 
                 {/* hero section */}
