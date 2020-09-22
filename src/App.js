@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import './App.scss';
 import Topmenu from './components/Topmenu';
 import { Box, createMuiTheme, Button, Grid, Typography, responsiveFontSizes, MuiThemeProvider, IconButton } from '@material-ui/core';
@@ -67,13 +66,14 @@ function App() {
   const [IsOn, setIsOn] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setIsOn(!IsOn), 2000)
-  }, [])
+    setTimeout(() => { setIsOn(true) }, 2000)
+  }
+
+    , [])
 
 
   return (
     <MuiThemeProvider theme={theme}>
-      <CssBaseline />
 
 
       <Grid  >
@@ -110,7 +110,7 @@ function App() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}>
-                <Thick />
+                {IsOn && <Thick />}
                 <Topmenu />
 
                 {/* hero section */}
@@ -121,8 +121,8 @@ function App() {
                     <Grid item> <Typography variant='subtitle1' component='h3' className="subheadline" display='block' gutterBottom={true} ><span></span></Typography></Grid>
                     <Grid item >
                       <Box style={{ display: 'flex', alignItems: 'stretch', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
-                        <Button size='small' color='primary' variant='contained' style={{ marginRight: '5px', marginBottom: "5px" }} startIcon={<CloudDownload />} onClick={downlaod}>download Resume</Button>
-                        <Button size='small' color='primary' variant='contained' style={{ marginBottom: "5px" }} startIcon={<Work />} href="#contact">Hire me </Button>
+                        <Button size='small' color='primary' variant='contained' style={{ marginRight: '5px', marginBottom: "5px" , textTransform: 'capitalize' }} startIcon={<CloudDownload />} onClick={downlaod}>download Resume</Button>
+                        <Button size='small' color='primary' variant='contained' style={{ marginBottom: "5px" , textTransform: 'capitalize' }} startIcon={<Work />} href="#contact">Hire me </Button>
                       </Box>
 
 
@@ -134,9 +134,9 @@ function App() {
 
                   <Grid item xs={1} md={2} >
                     <motion.span
-                      initial={{ y: "-50px", opacity: 0 }}
-                      animate={{ y: "-40px", opacity: 1 }}
-                      transition={{ y: { yoyo: Infinity, duration: 1 }, opacity: { yoyo: Infinity, duration: 1 } }}
+                      initial={{ y: "-50px" }}
+                      animate={{ y: "-40px"}}
+                      transition={{ y: { yoyo: Infinity, duration: 1 } }}
                       style={{ position: "absolute", bottom: 10 }}>
                       <IconButton
                         href="#about"

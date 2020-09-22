@@ -29,7 +29,7 @@ function Content() {
     ...random(i),
     config: { mass: 20, tension: 150, friction: 50 }
   }))
-  useEffect(() => void setInterval(() => set(i => ({ ...random(i), delay: i * 40 })), 3000), [])
+  useEffect(() => void setInterval(() => set(i => ({ ...random(i), delay: i * 40 })), 3000))
   return data.map((d, index) => (
     <a.mesh key={index} {...springs[index]} castShadow receiveShadow>
       <boxBufferGeometry attach="geometry" args={d.args} />
@@ -59,7 +59,7 @@ function Lights() {
 export default function Thick() {
   return (
     <div style ={{position:'absolute' ,zIndex:"-1" ,width:'100%',height:'100%'}}>
-      <Canvas shadowMap camera={{ position: [0, 0, 100], fov: 250 }}>
+      <Canvas  camera={{ position: [0, 0, 100], fov: 250 }}>
         <Lights />
         <Content />
       </Canvas>

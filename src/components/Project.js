@@ -39,7 +39,7 @@ function Project(props) {
             />
             <CardContent>
                 <Typography variant='h3'>{props.project.title}</Typography>
-                <Typography variant='subtitle2'>{props.project.subtitle}</Typography>
+                <Typography variant='body1'>{props.project.subtitle}</Typography>
             </CardContent>
             <CardActions>
                 <IconButton href={props.project.source}><Code /></IconButton>
