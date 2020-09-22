@@ -63,7 +63,7 @@ animation-timing-function: linear;
     fill: #D72323;
 }
 
-#bleft{
+#bleft_2_{
     animation:flyL infinite 3s ;
     animation-direction: alternate;
     animation-timing-function: ease-in;
@@ -71,7 +71,7 @@ animation-timing-function: linear;
     transform-box:fill-box;
 }
 
-#bright{
+#bright_2_{
     animation-delay: 1s;
     animation:fly infinite 2s ;
     animation-direction: alternate;
