@@ -11,12 +11,7 @@ import {
   Container,
   Toolbar,
 } from "@material-ui/core";
-import {
-  CloudDownload,
-  Work,
-  KeyboardArrowDown,
-  Email,
-} from "@material-ui/icons";
+import { CloudDownload, Work, Fingerprint, Email } from "@material-ui/icons";
 import { motion } from "framer-motion";
 import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
@@ -68,7 +63,7 @@ function Hero() {
       </Container>
       <Toolbar />
       <Container>
-        <Box paddingTop={3}>
+        <Box paddingTop={2} paddingBottom={1}>
           {/* <motion.div
             initial={{ y: "-50px" }}
             animate={{ y: "-40px" }}
@@ -76,7 +71,7 @@ function Hero() {
             style={{ position: "relative" }}
           > */}
           <IconButton href="#about" color="inherit">
-            <KeyboardArrowDown style={{ fontSize: "30px" }} />
+            <Fingerprint style={{ fontSize: "30px" }} />
           </IconButton>
           {/* </motion.div> */}
         </Box>
@@ -160,7 +155,7 @@ function Hero() {
             style={{ position: "absolute", bottom: 10 }}
           >
             <IconButton href="#about" color="inherit" style={{ padding: 0 }}>
-              <KeyboardArrowDown style={{ fontSize: "30px" }} />
+              <Fingerprint style={{ fontSize: "30px" }} />
             </IconButton>
           </motion.span>
         </Grid>

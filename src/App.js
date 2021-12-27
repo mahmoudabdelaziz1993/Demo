@@ -8,6 +8,7 @@ import {
   responsiveFontSizes,
   MuiThemeProvider,
   Toolbar,
+  Box,
 } from "@material-ui/core";
 import { ReactComponent as Mogo } from "./logos.svg";
 import { ReactComponent as Logo } from "./logo.svg";
@@ -96,15 +97,14 @@ function App(props) {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                {IsOn && <Thick />}
-
                 <Topmenu />
-
-                <Toolbar />
-                <Toolbar />
-                {/* hero section */}
-                <Hero />
-
+                <Box style={{ position: "relative" }}>
+                  {IsOn && <Thick />}
+                  <Toolbar />
+                  <Toolbar />
+                  {/* hero section */}
+                  <Hero />
+                </Box>
                 {/* about Me section */}
                 <Grid
                   item
