@@ -9,8 +9,6 @@ import {
   MuiThemeProvider,
   Toolbar,
 } from "@material-ui/core";
-import { CloudDownload, Work, KeyboardArrowDown } from "@material-ui/icons";
-import { ReactComponent as Me } from "./me.svg";
 import { ReactComponent as Mogo } from "./logos.svg";
 import { ReactComponent as Logo } from "./logo.svg";
 import Project from "./components/Project";
@@ -20,7 +18,6 @@ import Footer from "./components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import Thick from "./components/Thick";
 import Hero from "./components/Hero";
-import Elevator from "./components/Elevator";
 
 let theme = createMuiTheme({
   palette: {

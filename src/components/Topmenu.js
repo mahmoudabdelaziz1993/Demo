@@ -14,20 +14,10 @@ import Tooltip from "@material-ui/core/Tooltip";
 const useStyles = makeStyles({
   root: {
     boxShadow: "none",
+    transition: " all 1s ease-in-out",
   },
-  LogoContainer: {
-    width: 60,
-    height: 60,
-    backgroundColor: "transparent",
-    borderRadius: "50%",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  logo: {
-    width: "48px",
-    height: "48px",
-    marginLeft: "-15px",
+  after: {
+    transition: " all 1s ease-in-out",
   },
   space: {
     flexGrow: 1,
@@ -39,7 +29,6 @@ const Topmenu = () => {
     threshold: 100,
     disableHysteresis: true,
   });
-  console.log(Trigger);
   const classes = useStyles();
   const home = () => {
     window["scrollTo"]({ top: 0, behavior: "smooth" });
@@ -47,7 +36,7 @@ const Topmenu = () => {
   return (
     <Box xs={{ flexGrow: 1 }}>
       <AppBar
-        className={!Trigger && classes.root}
+        className={!Trigger ? classes.root : classes.after}
         color={Trigger ? "secondary" : "transparent"}
       >
         <Toolbar>
