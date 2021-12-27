@@ -39,6 +39,9 @@ let theme = createMuiTheme({
     h3: {
       fontWeight: 600,
     },
+    h6: {
+      fontWeight: 600,
+    },
   },
 });
 theme = responsiveFontSizes(theme);

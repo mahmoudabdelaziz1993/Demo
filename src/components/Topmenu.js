@@ -5,6 +5,7 @@ import {
   IconButton,
   makeStyles,
   Box,
+  Container,
 } from "@material-ui/core";
 import { ReactComponent as Logo } from "../logo.svg";
 import { LinkedIn, GitHub } from "@material-ui/icons";
@@ -21,6 +22,9 @@ const useStyles = makeStyles({
   },
   space: {
     flexGrow: 1,
+  },
+  custom: {
+    display: "flex",
   },
 });
 
@@ -39,7 +43,7 @@ const Topmenu = () => {
         className={!Trigger ? classes.root : classes.after}
         color={Trigger ? "secondary" : "transparent"}
       >
-        <Toolbar>
+        <Container className={classes.custom}>
           <Tooltip disableFocusListener title="Mahmoud Abdelaziz" arrow>
             <IconButton color="inherit" onClick={home}>
               <Logo width="40" height="40" fill="currentColor" />
@@ -65,7 +69,7 @@ const Topmenu = () => {
               <GitHub />
             </IconButton>
           </Tooltip>
-        </Toolbar>
+        </Container>
       </AppBar>
     </Box>
   );
