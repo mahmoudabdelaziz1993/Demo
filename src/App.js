@@ -2,14 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./App.scss";
 import Topmenu from "./components/Topmenu";
 import {
-  Box,
   createMuiTheme,
-  Button,
   Grid,
   Typography,
   responsiveFontSizes,
   MuiThemeProvider,
-  IconButton,
+  Toolbar,
 } from "@material-ui/core";
 import { CloudDownload, Work, KeyboardArrowDown } from "@material-ui/icons";
 import { ReactComponent as Me } from "./me.svg";
@@ -21,6 +19,8 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import Thick from "./components/Thick";
+import Hero from "./components/Hero";
+import Elevator from "./components/Elevator";
 
 let theme = createMuiTheme({
   palette: {
@@ -44,18 +44,9 @@ let theme = createMuiTheme({
     },
   },
 });
-
 theme = responsiveFontSizes(theme);
 
-function App() {
-  const downlaod = () => {
-    const link = document.createElement("a");
-    link.href = process.env.PUBLIC_URL + "/CV.pdf";
-    link.setAttribute("download", "Mahmoud-abdelaziz.pdf");
-    document.body.appendChild(link);
-    link.click();
-  };
-
+function App(props) {
   //protfolio is on !
   const [IsOn, setIsOn] = useState(false);
 
@@ -106,100 +97,13 @@ function App() {
                 exit={{ opacity: 0 }}
               >
                 {IsOn && <Thick />}
+
                 <Topmenu />
 
+                <Toolbar />
+                <Toolbar />
                 {/* hero section */}
-                <Grid
-                  item
-                  container
-                  alignContent="center"
-                  style={{ minHeight: "80vh" }}
-                >
-                  <Grid item xs={2} md={2} />
-                  <Grid item container direction="column" xs={6} md={6}>
-                    <Grid item>
-                      <Typography
-                        variant="h3"
-                        component="h3"
-                        display="block"
-                        gutterBottom={true}
-                      >
-                        {" "}
-                        Hello <br /> I'm Mahmoud abdelaziz{" "}
-                      </Typography>
-                    </Grid>
-                    <Grid item>
-                      {" "}
-                      <Typography
-                        variant="subtitle1"
-                        component="h3"
-                        className="subheadline"
-                        display="block"
-                        gutterBottom={true}
-                      >
-                        <span></span>
-                      </Typography>
-                    </Grid>
-                    <Grid item>
-                      <Box
-                        style={{
-                          display: "flex",
-                          alignItems: "stretch",
-                          justifyContent: "flex-start",
-                          flexWrap: "wrap",
-                        }}
-                      >
-                        <Button
-                          size="small"
-                          color="primary"
-                          variant="contained"
-                          style={{
-                            marginRight: "5px",
-                            marginBottom: "5px",
-                            textTransform: "capitalize",
-                          }}
-                          startIcon={<CloudDownload />}
-                          onClick={downlaod}
-                        >
-                          download Resume
-                        </Button>
-                        <Button
-                          size="small"
-                          color="primary"
-                          variant="contained"
-                          style={{
-                            marginBottom: "5px",
-                            textTransform: "capitalize",
-                          }}
-                          startIcon={<Work />}
-                          href="#contact"
-                        >
-                          Hire me{" "}
-                        </Button>
-                      </Box>
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={3} md={2}>
-                    <Me style={{ width: "100%", height: "auto" }} />
-                  </Grid>
-
-                  <Grid item xs={1} md={2}>
-                    <motion.span
-                      initial={{ y: "-50px" }}
-                      animate={{ y: "-40px" }}
-                      transition={{ y: { yoyo: Infinity, duration: 1 } }}
-                      style={{ position: "absolute", bottom: 10 }}
-                    >
-                      <IconButton
-                        href="#about"
-                        color="inherit"
-                        style={{ padding: 0 }}
-                      >
-                        <KeyboardArrowDown style={{ fontSize: "30px" }} />
-                      </IconButton>
-                    </motion.span>
-                  </Grid>
-                </Grid>
+                <Hero />
 
                 {/* about Me section */}
                 <Grid
