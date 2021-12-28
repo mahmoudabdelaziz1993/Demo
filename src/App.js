@@ -55,7 +55,7 @@ function App(props) {
   useEffect(() => {
     setTimeout(() => {
       setIsOn(true);
-    }, 2000);
+    }, 10);
   }, []);
 
   return (

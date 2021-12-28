@@ -29,7 +29,7 @@ const AboutSection = () => {
             >
               <Grid item>
                 {" "}
-                <Typography variant="h4" gutterBottom={true}>
+                <Typography variant="h2" gutterBottom={true}>
                   {" "}
                   About me
                 </Typography>

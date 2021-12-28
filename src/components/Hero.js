@@ -32,7 +32,7 @@ function Hero() {
           </Grid>
           <Grid item xs={12} sm={8}>
             <Container>
-              <Typography variant="h2" display="block" gutterBottom gutterTop>
+              <Typography variant="h2" display="block" gutterBottom>
                 {" "}
                 Hi there, <br /> I'm Mahmoud Abdelaziz{" "}
               </Typography>
@@ -63,7 +63,7 @@ function Hero() {
       </Container>
       <Toolbar />
       <Container>
-        <Box paddingTop={2} paddingBottom={1}>
+        <Box paddingTop={2} paddingBottom={3}>
           {/* <motion.div
             initial={{ y: "-50px" }}
             animate={{ y: "-40px" }}
