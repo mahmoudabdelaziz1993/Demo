@@ -19,6 +19,7 @@ import Footer from "./components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import Thick from "./components/Thick";
 import Hero from "./components/Hero";
+import AboutSection from "./components/sections/AboutSection";
 
 let theme = createMuiTheme({
   palette: {
@@ -106,7 +107,7 @@ function App(props) {
                   <Hero />
                 </Box>
                 {/* about Me section */}
-                <Grid
+                {/* <Grid
                   item
                   container
                   alignContent="center"
@@ -147,7 +148,8 @@ function App(props) {
                     <Mogo style={{ width: "100%" }} />
                   </Grid>
                   <Grid item xs={2} md={2} />
-                </Grid>
+                </Grid> */}
+                <AboutSection />
 
                 {/* Work section */}
                 <Grid item container>

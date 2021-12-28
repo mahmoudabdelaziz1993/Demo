@@ -1,111 +1,116 @@
-*{
-    box-sizing: border-box;
-  }
-  html, body,#root {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
-
-  }
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
 //   #root {
 //     background-color: #EEEEEE;
 //   }
-.wrapper{
-    position: fixed;
+.wrapper {
+  position: fixed;
 }
-.object{
-    position: absolute;
+.object {
+  position: absolute;
 }
 
+.subheadline {
+  // top: 70%;
+  // left: 6%;
+  width: 100%;
 
-.subheadline{
-    // top: 70%;
-    // left: 6%;
-   width: 100%;
-   
-    color: #D72323;
+  color: #d72323;
 }
-.subheadline span::before{
-content: '';
-animation: animate infinite 6s;
-animation-timing-function: linear;
-
-
+.subheadline span::before {
+  content: "";
+  animation: animate infinite 6s;
+  animation-timing-function: linear;
 }
-@keyframes animate{
-    0%{
-        content: 'Freelancer';
-    }
-    20%{
-        content: 'Fullstack';
-    }
-    40%{
-        content: 'Designer';
-    }
-    60%{
-        content: 'Back end';
-    }
-    80%{
-        content: 'Front end';
-    }
-    100%{
-        content: 'Tour operator';
-    }
+@keyframes animate {
+  0% {
+    content: "Freelancer";
+  }
+  20% {
+    content: "Fullstack";
+  }
+  40% {
+    content: "Designer";
+  }
+  60% {
+    content: "Back end";
+  }
+  80% {
+    content: "Front end";
+  }
+  100% {
+    content: "Tour operator";
+  }
 }
 
 .myname {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 // logos
-#logos{
-    fill: #D72323;
+#logos {
+  fill: #d72323;
 }
 
-#bleft_2_{
-    animation:flyL infinite 3s ;
-    animation-direction: alternate;
-    animation-timing-function: ease-in;
-    transform-origin: right;
-    transform-box:fill-box;
+#bleft_2_ {
+  animation: flyL infinite 3s;
+  animation-direction: alternate;
+  animation-timing-function: ease-in;
+  transform-origin: right;
+  transform-box: fill-box;
 }
 
-#bright_2_{
-    animation-delay: 1s;
-    animation:fly infinite 2s ;
-    animation-direction: alternate;
-    animation-timing-function: ease-in-out;
-    transform-origin: left;
-    transform-box: fill-box ;
+#bright_2_ {
+  animation-delay: 1s;
+  animation: fly infinite 2s;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  transform-origin: left;
+  transform-box: fill-box;
 }
 
+#logos path:nth-child(3) {
+  fill: #000000;
+  animation: hum infinite 1s;
+  animation-direction: alternate;
+  transform-origin: top;
 
-
-#logos path:nth-child(3){
-    fill: #303841;
-    animation:hum infinite 1s ;
-    animation-direction: alternate;
-    transform-origin: top;
-
-    transform-box: fill-box ;
-
-
+  transform-box: fill-box;
 }
-@keyframes hum{
-    100%{
-        transform: rotatez(-5deg);
-    }
-}
-@keyframes fly{
-    100%{
-        transform: rotatez(15deg);
-    }
-}
-@keyframes flyL{
-    100%{
-        transform: rotatez(-15deg);
-    }
+.makeStyles-sliderTrack-16 {
+  animation: scroll 20s linear infinite;
 }
 
+@keyframes hum {
+  100% {
+    transform: rotatez(-5deg);
+  }
+}
+@keyframes fly {
+  100% {
+    transform: rotatez(15deg);
+  }
+}
+@keyframes flyL {
+  100% {
+    transform: rotatez(-15deg);
+  }
+}
 
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
