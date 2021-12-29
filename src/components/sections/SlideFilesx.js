@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, Typography } from "@material-ui/core";
+import { Box, Container, Typography, Toolbar } from "@material-ui/core";
 import {
   SiTypescript,
   SiJavascript,
@@ -14,8 +14,10 @@ import {
   SiJsonwebtokens,
   SiAiohttp,
   SiSvg,
+  SiGithub,
 } from "react-icons/si";
 import { makeStyles } from "@material-ui/core/styles";
+import { motion } from "framer-motion";
 let Logos = [
   { icon: <SiTypescript />, title: "Typescript" },
   { icon: <SiJavascript />, title: "Javascript" },
@@ -30,6 +32,7 @@ let Logos = [
   { icon: <SiJsonwebtokens />, title: "JWT" },
   { icon: <SiAiohttp />, title: "HTTP" },
   { icon: <SiSvg />, title: "SVG" },
+  { icon: <SiGithub />, title: "Github" },
 ];
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,6 +43,9 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "300px",
     alignItems: "center",
     display: "flex",
+    [theme.breakpoints.up("md")]: {
+      padding: `0px ${theme.spacing(3)}px`,
+    },
   },
   slider: {
     margin: "auto",
@@ -49,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     position: "relative",
     alignItems: "center",
-    borderRadius: "14px",
+    // borderRadius: "14px",
     background: "linear-gradient(145deg, #e62525, #c22020)",
     boxShadow: " 9px 9px 18px #bb1e1e,-9px -9px 18px #f32828",
   },
@@ -79,8 +85,24 @@ const SlideFilesx = () => {
 
   return (
     <Box className={classes.root}>
+      <Box>
+        <Typography variant="h2" style={{ maxWidth: "150px" }}>
+          Tech Skils
+        </Typography>
+      </Box>
       <Container maxWidth="md" className={classes.slider}>
-        <Box className={classes.sliderTrack}>
+        <Box
+          className={classes.sliderTrack}
+          component={motion.div}
+          intial={{ x: 0 }}
+          animate={{ x: "-100%" }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "loop",
+            duration: 20,
+            type: "tween",
+          }}
+        >
           {Logos.map((logo, index) => (
             <Box className={classes.slide} key={index}>
               <Typography variant="h2">{logo.icon}</Typography>
@@ -88,7 +110,18 @@ const SlideFilesx = () => {
             </Box>
           ))}
         </Box>
-        <Box className={classes.sliderTrack}>
+        <Box
+          className={classes.sliderTrack}
+          component={motion.div}
+          intial={{ x: 0 }}
+          animate={{ x: "-100%" }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "loop",
+            duration: 20,
+            type: "tween",
+          }}
+        >
           {Logos.map((logo, index) => (
             <Box className={classes.slide} key={index}>
               <Typography variant="h2">{logo.icon}</Typography>
