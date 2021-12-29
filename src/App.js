@@ -10,7 +10,6 @@ import {
   Toolbar,
   Box,
 } from "@material-ui/core";
-import { ReactComponent as Mogo } from "./logos.svg";
 import { ReactComponent as Logo } from "./logo.svg";
 import Project from "./components/Project";
 import { projects } from "./data";
@@ -177,7 +176,7 @@ function App(props) {
                 </Grid>
 
                 {/* Let's talk section  */}
-                <Grid item container>
+                {/* <Grid item container>
                   <Grid item xs={2} md={2} />
                   <Grid
                     item
@@ -205,7 +204,7 @@ function App(props) {
                     </Grid>
                   </Grid>
                   <Grid item xs={2} md={2} />
-                </Grid>
+                </Grid> */}
 
                 <Footer />
               </motion.div>

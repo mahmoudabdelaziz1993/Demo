@@ -28,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
   },
   red: {
     color: theme.palette.primary.light,
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2),
+    paddingLeft: theme.spacing(1),
+    paddingRight: theme.spacing(1),
     fontSize: "1.2rem",
   },
   word: {
