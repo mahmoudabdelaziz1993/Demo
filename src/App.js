@@ -19,6 +19,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Thick from "./components/Thick";
 import Hero from "./components/Hero";
 import AboutSection from "./components/sections/AboutSection";
+import WorkSection from "./components/sections/WorkSection";
 
 let theme = createMuiTheme({
   palette: {
@@ -151,30 +152,8 @@ function App(props) {
                 <AboutSection />
 
                 {/* Work section */}
-                <Grid item container>
-                  <Grid item xs={2} md={2} />
-                  <Grid
-                    item
-                    container
-                    direction="column"
-                    spacing={3}
-                    xs={8}
-                    md={8}
-                  >
-                    <Grid item>
-                      {" "}
-                      <Typography variant="h3">Work</Typography>
-                    </Grid>
 
-                    {projects.map((project) => (
-                      <Grid item key={project.number}>
-                        <Project project={project} />
-                      </Grid>
-                    ))}
-                  </Grid>
-                  <Grid item xs={2} md={2} />
-                </Grid>
-
+                <WorkSection />
                 {/* Let's talk section  */}
                 {/* <Grid item container>
                   <Grid item xs={2} md={2} />

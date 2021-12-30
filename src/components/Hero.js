@@ -10,10 +10,18 @@ import {
   IconButton,
   Container,
   Toolbar,
+  Tooltip,
 } from "@material-ui/core";
-import { CloudDownload, Work, Fingerprint, Email } from "@material-ui/icons";
+import {
+  CloudDownload,
+  Work,
+  Fingerprint,
+  Email,
+  Phone,
+} from "@material-ui/icons";
 import { motion } from "framer-motion";
 import { makeStyles } from "@material-ui/core/styles";
+import { useState } from "react";
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
@@ -22,7 +30,14 @@ const useStyles = makeStyles((theme) => ({
 
 function Hero() {
   const classes = useStyles();
-
+  const [trigger, setTrigger] = useState(false);
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText("+201006936354");
+    setTrigger(true);
+    setTimeout(() => {
+      setTrigger(false);
+    }, 2000);
+  };
   return (
     <>
       <Container maxWidth="md">
@@ -57,6 +72,17 @@ function Hero() {
               >
                 Say Hi
               </Button>
+              <Tooltip title="Copied to clipboard" open={trigger}>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  className={classes.button}
+                  startIcon={<Phone />}
+                  onClick={copyToClipboard}
+                >
+                  Phone
+                </Button>
+              </Tooltip>
             </Container>
           </Grid>
         </Grid>

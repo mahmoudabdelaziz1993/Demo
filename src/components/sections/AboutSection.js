@@ -28,13 +28,19 @@ const useStyles = makeStyles((theme) => ({
   },
   red: {
     color: theme.palette.primary.light,
-    paddingLeft: theme.spacing(1),
-    paddingRight: theme.spacing(1),
-    fontSize: "1.2rem",
+    paddingLeft: "0.8px",
+    paddingRight: "0.8px",
   },
   word: {
     lineHeight: "1.5rem",
     textAlign: "justify",
+    padding: `${theme.spacing(2)}px 0px `,
+  },
+  flip: {
+    [theme.breakpoints.down("xs")]: {
+      display: "flex",
+      flexDirection: "column-reverse",
+    },
   },
 }));
 const AboutSection = () => {
@@ -44,8 +50,15 @@ const AboutSection = () => {
       <SlideFilesx />
       <Toolbar />
       <Container maxWidth={"md"}>
-        <Grid item container alignContent="center" justify="center">
-          <Grid item container justifyContent="center" xs={12} sm={8}>
+        <Grid
+          item
+          container
+          alignContent="center"
+          justify="center"
+          className={classes.flip}
+          spacing={2}
+        >
+          <Grid item container xs={12} sm={8}>
             {/* <Box className={classes.card}> */}
             <Paper className={classes.card}>
               {/* <Grid item>
@@ -70,7 +83,7 @@ const AboutSection = () => {
                 meaningful to me. Although my professional path has taken many
                 twists and turns , from Sales and tour oprating to a Fullstack
                 dev */}
-                  <span class={classes.red}>
+                  <span className={classes.red}>
                     {" "}
                     <RiDoubleQuotesL />
                   </span>
@@ -79,7 +92,7 @@ const AboutSection = () => {
                   stack for +2 years now building user-friendly web
                   applications, I am also willing to contribute to any open
                   source projects or charity.
-                  <span class={classes.red}>
+                  <span className={classes.red}>
                     {" "}
                     <RiDoubleQuotesR />
                   </span>
@@ -89,9 +102,9 @@ const AboutSection = () => {
             {/* </Box> */}
           </Grid>
           <Grid item xs={12} sm={4}>
-            <Box display={{ xs: "none", sm: "block" }}>
-              <Mogo style={{ width: "100%" }} />
-            </Box>
+            {/* <Box display={{ xs: "none", sm: "block" }}> */}
+            <Mogo style={{ width: "100%", height: "100%" }} />
+            {/* </Box> */}
           </Grid>
         </Grid>
       </Container>

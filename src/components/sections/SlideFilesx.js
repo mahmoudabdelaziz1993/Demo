@@ -46,8 +46,16 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {
       padding: `0px ${theme.spacing(3)}px`,
     },
+    [theme.breakpoints.down("xs")]: {
+      alignItems: "flex-start",
+      justifyContent: "center",
+      flexDirection: "column",
+    },
   },
   slider: {
+    [theme.breakpoints.down("xs")]: {
+      margin: 0,
+    },
     margin: "auto",
     backgroundColor: theme.palette.primary.main,
 
@@ -85,7 +93,7 @@ const SlideFilesx = () => {
 
   return (
     <Box className={classes.root}>
-      <Box>
+      <Box m={2}>
         <Typography variant="h2" style={{ maxWidth: "150px" }}>
           Tech Skils
         </Typography>
