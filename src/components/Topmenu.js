@@ -7,7 +7,7 @@ import {
   Box,
   Container,
   Fab,
-  Zoom,
+  Grow,
   Tooltip,
 } from "@material-ui/core";
 import { ReactComponent as Logo } from "../logo.svg";
@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
   flotingThings: {
-    margin: theme.spacing(1),
+    // margin: theme.spacing(1),
   },
 }));
 
@@ -100,20 +100,28 @@ const Topmenu = () => {
                 <GitHub />
               </IconButton>
             </Tooltip>
+            {Trigger2 && (
+              <>
+                {" "}
+                <Grow in={Trigger2}>
+                  <IconButton color="inherit" onClick={DownLoadPDF}>
+                    <CloudDownload />
+                  </IconButton>
+                </Grow>
+                <Grow in={Trigger2}>
+                  <Tooltip title="Copied to clipboard" open={copydone}>
+                    <IconButton color="inherit" onClick={copyToClipboard}>
+                      <Phone />
+                    </IconButton>
+                  </Tooltip>
+                </Grow>
+              </>
+            )}
           </Container>
         </AppBar>
       </Box>
       <Box className={classes.down}>
-        <Zoom in={Trigger2}>
-          <Fab
-            className={classes.flotingThings}
-            color="secondary"
-            onClick={DownLoadPDF}
-          >
-            <CloudDownload />
-          </Fab>
-        </Zoom>
-        <Zoom in={Trigger2}>
+        <Grow in={Trigger2}>
           <Fab
             className={classes.flotingThings}
             color="secondary"
@@ -121,18 +129,7 @@ const Topmenu = () => {
           >
             <Email />
           </Fab>
-        </Zoom>
-        <Zoom in={Trigger2}>
-          <Tooltip title="Copied to clipboard" open={copydone}>
-            <Fab
-              className={classes.flotingThings}
-              color="secondary"
-              onClick={copyToClipboard}
-            >
-              <Phone />
-            </Fab>
-          </Tooltip>
-        </Zoom>
+        </Grow>
       </Box>
     </>
   );

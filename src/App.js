@@ -4,22 +4,19 @@ import Topmenu from "./components/Topmenu";
 import {
   createMuiTheme,
   Grid,
-  Typography,
   responsiveFontSizes,
   MuiThemeProvider,
   Toolbar,
   Box,
+  makeStyles,
 } from "@material-ui/core";
 import { ReactComponent as Logo } from "./logo.svg";
-import Project from "./components/Project";
-import { projects } from "./data";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import Thick from "./components/Thick";
 import Hero from "./components/Hero";
 import AboutSection from "./components/sections/AboutSection";
 import WorkSection from "./components/sections/WorkSection";
+import Loader from "./components/Loader";
 
 let theme = createMuiTheme({
   palette: {
@@ -46,150 +43,102 @@ let theme = createMuiTheme({
     },
   },
 });
+
+let slideUpOut = {
+  initial: {
+    opacity: 0.5,
+    y: "-100vh",
+  },
+  play: {
+    opacity: 1,
+    y: "0",
+    transition: {
+      delay: 0.5,
+      when: "beforChildren",
+    },
+  },
+  exit: {
+    opacity: 0.5,
+    y: "-100vh",
+    transition: {
+      delay: 0.5,
+    },
+  },
+};
+let slideUpOIn = {
+  initial: {
+    opacity: 0.5,
+    y: "100vh",
+  },
+  play: {
+    opacity: 1,
+    y: "0",
+  },
+  exit: {
+    opacity: 0.5,
+    y: "100vh",
+  },
+};
+
 theme = responsiveFontSizes(theme);
 
 function App(props) {
   //protfolio is on !
-  const [IsOn, setIsOn] = useState(false);
+  const [LoaderTrigger, setLoaderTrigger] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
-      setIsOn(true);
-    }, 10);
+      setLoaderTrigger(false);
+    }, 3000);
   }, []);
 
   return (
     <MuiThemeProvider theme={theme}>
       <Grid>
-        {!IsOn ? (
-          <AnimatePresence>
-            <motion.div
-              style={{
-                height: "100vh",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                background: "#D72323",
-              }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+        <AnimatePresence>
+          {LoaderTrigger && (
+            <Grid
+              item
+              component={motion.div}
+              variants={slideUpOut}
+              initial="initial"
+              animate="play"
+              exit="exit"
+              id="loader"
             >
-              <motion.div
-                animate={{ scale: 1.2 }}
-                transition={{ yoyo: Infinity, duration: 0.5 }}
-                style={{
-                  display: "flex",
-                  width: "20%",
-                  height: "20%",
-                  justifyContent: "center",
-                }}
+              <Loader />
+            </Grid>
+          )}
+
+          {!LoaderTrigger && (
+            <>
+              <Topmenu />
+
+              <Grid
+                item
+                component={motion.div}
+                // style={{ display: "contents" }}
+                variants={slideUpOIn}
+                initial="initial"
+                animate="play"
+                exit="exit"
               >
-                <Logo style={{ width: "100%" }} />
-              </motion.div>
-            </motion.div>
-          </AnimatePresence>
-        ) : (
-          <>
-            <AnimatePresence>
-              <motion.div
-                style={{ display: "contents" }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
-                <Topmenu />
                 <Box style={{ position: "relative" }}>
-                  {IsOn && <Thick />}
+                  <Thick />
                   <Toolbar />
                   <Toolbar />
                   {/* hero section */}
                   <Hero />
                 </Box>
-                {/* about Me section */}
-                {/* <Grid
-                  item
-                  container
-                  alignContent="center"
-                  id="about"
-                  justify="center"
-                  style={{ minHeight: "80vh" }}
-                >
-                  <Grid item xs={2} md={2} />
-                  <Grid
-                    item
-                    container
-                    direction="column"
-                    alignContent="center"
-                    xs={4}
-                    md={4}
-                  >
-                    <Grid item>
-                      {" "}
-                      <Typography variant="h3" gutterBottom={true}>
-                        {" "}
-                        About me
-                      </Typography>
-                    </Grid>
-                    <Grid item>
-                      <Typography
-                        variant="subtitle2"
-                        component="p"
-                        display="block"
-                      >
-                        I’ve always sought out opportunities and challenges that
-                        are meaningful to me. Although my professional path has
-                        taken many twists and turns , from Sales and tour
-                        oprating to a Fullstack dev
-                      </Typography>
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={4} md={4}>
-                    <Mogo style={{ width: "100%" }} />
-                  </Grid>
-                  <Grid item xs={2} md={2} />
-                </Grid> */}
+                {/* About Section */}
                 <AboutSection />
-
                 {/* Work section */}
-
                 <WorkSection />
                 {/* Let's talk section  */}
-                {/* <Grid item container>
-                  <Grid item xs={2} md={2} />
-                  <Grid
-                    item
-                    container
-                    direction="column"
-                    spacing={3}
-                    xs={8}
-                    md={8}
-                    justify="center"
-                    id="contact"
-                    alignContent="center"
-                  >
-                    <Grid item>
-                      {" "}
-                      <Typography
-                        variant="h3"
-                        color="primary"
-                        style={{ marginTop: "50px" }}
-                      >
-                        Let's talk
-                      </Typography>
-                    </Grid>
-                    <Grid item id="contact">
-                      <Contact />
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={2} md={2} />
-                </Grid> */}
-
-                <Footer />
-              </motion.div>
-            </AnimatePresence>
-          </>
-        )}
+              </Grid>
+            </>
+          )}
+        </AnimatePresence>
       </Grid>
     </MuiThemeProvider>
   );
