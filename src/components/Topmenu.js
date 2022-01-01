@@ -9,6 +9,7 @@ import {
   Fab,
   Grow,
   Tooltip,
+  Zoom,
 } from "@material-ui/core";
 import { ReactComponent as Logo } from "../logo.svg";
 import { LinkedIn, GitHub } from "@material-ui/icons";
@@ -103,18 +104,18 @@ const Topmenu = () => {
             {Trigger2 && (
               <>
                 {" "}
-                <Grow in={Trigger2}>
+                <Zoom in={Trigger2}>
                   <IconButton color="inherit" onClick={DownLoadPDF}>
                     <CloudDownload />
                   </IconButton>
-                </Grow>
-                <Grow in={Trigger2}>
+                </Zoom>
+                <Zoom in={Trigger2}>
                   <Tooltip title="Copied to clipboard" open={copydone}>
                     <IconButton color="inherit" onClick={copyToClipboard}>
                       <Phone />
                     </IconButton>
                   </Tooltip>
-                </Grow>
+                </Zoom>
               </>
             )}
           </Container>

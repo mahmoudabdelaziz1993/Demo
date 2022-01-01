@@ -53,8 +53,9 @@ let slideUpOut = {
     opacity: 1,
     y: "0",
     transition: {
-      delay: 0.5,
-      when: "beforChildren",
+      delay: 0.01,
+      when: "beforeChildren",
+      staggerChildren: 0.08,
     },
   },
   exit: {
@@ -65,6 +66,7 @@ let slideUpOut = {
     },
   },
 };
+
 let slideUpOIn = {
   initial: {
     opacity: 0.5,
@@ -89,25 +91,25 @@ function App(props) {
   useEffect(() => {
     setTimeout(() => {
       setLoaderTrigger(false);
-    }, 3000);
+    }, 2500);
   }, []);
 
   return (
     <MuiThemeProvider theme={theme}>
       <Grid>
-        <AnimatePresence>
+        <AnimatePresence exitBeforeEnter>
           {LoaderTrigger && (
-            <Grid
-              item
-              component={motion.div}
-              variants={slideUpOut}
-              initial="initial"
-              animate="play"
-              exit="exit"
-              id="loader"
-            >
-              <Loader />
-            </Grid>
+            // <Grid
+            //   item
+            //   component={motion.div}
+            //   variants={slideUpOut}
+            //   initial="initial"
+            //   animate="play"
+            //   exit="exit"
+            //   id="loader"
+            // >
+            <Loader />
+            // </Grid>
           )}
 
           {!LoaderTrigger && (
