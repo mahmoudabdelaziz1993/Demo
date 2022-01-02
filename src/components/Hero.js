@@ -1,5 +1,7 @@
 import React from "react";
-import { ReactComponent as Me } from "../me.svg";
+// import { ReactComponent as Me } from "../me.svg";
+import { ReactComponent as Me } from "../assets/me.svg";
+
 import downloadPDF from "../utils/DownLoadPDF";
 import EmailMessage from "../utils/EmailMessage";
 import {

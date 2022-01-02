@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   word: {
     lineHeight: "1.5rem",
     textAlign: "justify",
-    padding: `${theme.spacing(2)}px 0px `,
+    padding: `${theme.spacing(1)}px ${theme.spacing(1)}px `,
   },
   flip: {
     [theme.breakpoints.down("xs")]: {
