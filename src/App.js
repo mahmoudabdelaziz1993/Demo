@@ -8,9 +8,7 @@ import {
   MuiThemeProvider,
   Toolbar,
   Box,
-  makeStyles,
 } from "@material-ui/core";
-import { ReactComponent as Logo } from "./logo.svg";
 import { motion, AnimatePresence } from "framer-motion";
 import Thick from "./components/Thick";
 import Hero from "./components/Hero";
@@ -44,28 +42,28 @@ let theme = createMuiTheme({
   },
 });
 
-let slideUpOut = {
-  initial: {
-    opacity: 0.5,
-    y: "-100vh",
-  },
-  play: {
-    opacity: 1,
-    y: "0",
-    transition: {
-      delay: 0.01,
-      when: "beforeChildren",
-      staggerChildren: 0.08,
-    },
-  },
-  exit: {
-    opacity: 0.5,
-    y: "-100vh",
-    transition: {
-      delay: 0.5,
-    },
-  },
-};
+// let slideUpOut = {
+//   initial: {
+//     opacity: 0.5,
+//     y: "-100vh",
+//   },
+//   play: {
+//     opacity: 1,
+//     y: "0",
+//     transition: {
+//       delay: 0.01,
+//       when: "beforeChildren",
+//       staggerChildren: 0.08,
+//     },
+//   },
+//   exit: {
+//     opacity: 0.5,
+//     y: "-100vh",
+//     transition: {
+//       delay: 0.5,
+//     },
+//   },
+// };
 
 let slideUpOIn = {
   initial: {
